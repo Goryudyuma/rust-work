@@ -4,25 +4,18 @@ fn getline() -> String{
 	return __ret;
 }
 
-fn main(){
-	let s = getline();
-	let bstr:Vec<&str>=s.trim().split(' ').collect();
-	let mut bint:[usize; 9] = [0; 9];
-	let mut i = 0;
-	while i < 9 {
-		bint[i] = bstr[i].parse().unwrap();
-		i += 1;
-	}
-	bint.sort();
-	i = 1;
-	while i <= 10 {
-		if i == 10 {
-			println!("{}", 10);
-			break;
-		} else if bint[i-1] != i {
-			println!("{}", i);
+fn main() {
+	let mut bs: Vec<usize> = getline().trim().split(' ').map(|x| x.parse().unwrap()).collect();
+
+	bs.sort();
+
+	let mut res = 10;
+	for (i, b) in bs.into_iter().enumerate() {
+		if b != i + 1 {
+			res = i + 1;
 			break;
 		}
-		i += 1;
 	}
+
+	println!("{}", res);
 }
