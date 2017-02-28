@@ -6,9 +6,12 @@ fn getline() -> String{
 
 fn main(){
 	let hw: Vec<i64> = getline().trim().split(' ').map(|x| x.parse().unwrap()).collect();
-	if hw[0] * 3 == hw[1] * 4 {
-		println!("TATE");
-	} else {
-		println!("YOKO");
-	}
+
+	println!("{}",
+		if hw[0] * 3 == hw[1] * 4 {
+			"TATE"
+		} else {
+			"YOKO"
+		}
+	);
 }

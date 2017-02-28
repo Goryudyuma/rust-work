@@ -6,9 +6,13 @@ fn getline() -> String{
 
 fn main(){
 	let ds :Vec<i32> = getline().trim().split(' ').map(|x| x.parse().unwrap()).collect();
-	if ds[3] == 1 || (ds[0] + ds[1] + ds[2] < 2){
-		println!("SURVIVED");
-	} else {
-		println!("DEAD");
-	}
+
+	println!("{}",
+		if ds[3] == 1 || (ds[0] + ds[1] + ds[2] < 2){
+			"SURVIVED"
+		} else {
+			"DEAD"
+		}
+	);
+
 }
