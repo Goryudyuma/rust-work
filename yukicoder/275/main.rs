@@ -10,9 +10,12 @@ fn main(){
 
 	ls.sort();
 
-	if ls.len() % 2 == 0 {
-		println!("{}", ((ls[ls.len()/2] + ls[ls.len()/2-1]) as f64) / 2.0);
-	} else {
-		println!("{}", ls[ls.len()/2]);
-	}
+	println!("{}",
+		if ls.len() % 2 == 0 {
+			(ls[ls.len()/2] + ls[ls.len()/2-1]) as f64 / 2.0
+		} else {
+			ls[ls.len()/2] as f64
+		}
+	);
+
 }
